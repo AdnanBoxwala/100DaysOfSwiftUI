@@ -1,5 +1,3 @@
 .DS_Store
-*.xcplayground
-*.xcworkspacedata
 *.xcuserstate
 xcschememanagement.plist
