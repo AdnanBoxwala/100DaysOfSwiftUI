@@ -31,8 +31,9 @@ struct ContentView: View {
                 Spacer()
                 
                 Text("Guess the Flag")
-                    .font(.largeTitle.bold())
-                    .foregroundColor(.white)
+                    .prominentTitle(Color(red: 0.76, green: 0.15, blue: 0.26), .largeTitle.bold())
+//                    .font(.largeTitle.bold())
+//                    .foregroundColor(.white)
                 
                 VStack(spacing: 15) {
                     VStack{
@@ -47,10 +48,7 @@ struct ContentView: View {
                         Button {
                             flagTapped(number)
                         } label: {
-                            Image(countries[number])
-                                .renderingMode(.original)
-                                .clipShape(Capsule())
-                                .shadow(radius: 5)
+                            FlagImage(for: countries[number])
                         }
                     }
                 }
@@ -63,8 +61,9 @@ struct ContentView: View {
                 Spacer()
                 
                 Text("Score: \(score)")
-                    .foregroundColor(.white)
-                    .font(.title.bold())
+                    .prominentTitle(Color(red: 0.1, green: 0.2, blue: 0.45), .title.bold())
+//                    .foregroundColor(.white)
+//                    .font(.title.bold())
                 
                 Spacer()
             }
@@ -107,6 +106,13 @@ struct ContentView: View {
         answeredQuestions = 0
         score = 0
         askQuestion()
+    }
+    
+    func FlagImage(for country: String) -> some View {
+        Image(country)
+            .renderingMode(.original)
+            .clipShape(Capsule())
+            .shadow(radius: 5)
     }
 }
 

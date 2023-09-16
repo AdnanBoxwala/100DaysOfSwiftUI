@@ -11,6 +11,7 @@
 		877BCB172AAFBDF1008C6098 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877BCB162AAFBDF1008C6098 /* ContentView.swift */; };
 		877BCB192AAFBDF2008C6098 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 877BCB182AAFBDF2008C6098 /* Assets.xcassets */; };
 		877BCB1C2AAFBDF2008C6098 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 877BCB1B2AAFBDF2008C6098 /* Preview Assets.xcassets */; };
+		877BCB3D2AB651B3008C6098 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877BCB3C2AB651B3008C6098 /* ViewModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		877BCB162AAFBDF1008C6098 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		877BCB182AAFBDF2008C6098 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		877BCB1B2AAFBDF2008C6098 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		877BCB3C2AB651B3008C6098 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				877BCB162AAFBDF1008C6098 /* ContentView.swift */,
 				877BCB182AAFBDF2008C6098 /* Assets.xcassets */,
 				877BCB1A2AAFBDF2008C6098 /* Preview Content */,
+				877BCB3C2AB651B3008C6098 /* ViewModifiers.swift */,
 			);
 			path = GuessTheFlag;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				877BCB3D2AB651B3008C6098 /* ViewModifiers.swift in Sources */,
 				877BCB172AAFBDF1008C6098 /* ContentView.swift in Sources */,
 				877BCB152AAFBDF1008C6098 /* GuessTheFlagApp.swift in Sources */,
 			);
