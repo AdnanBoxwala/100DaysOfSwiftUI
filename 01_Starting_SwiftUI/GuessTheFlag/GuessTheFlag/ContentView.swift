@@ -17,7 +17,7 @@ struct ContentView: View {
     @State private var gameOver = false
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
-    @State private var correctAnswer = Int.random(in: 1...2)
+    @State private var correctAnswer = Int.random(in: 0...2)
     
     var body: some View {
         ZStack {
@@ -94,7 +94,7 @@ struct ContentView: View {
     }
     
     func askQuestion() {
-        if answeredQuestions == 8 {
+        if answeredQuestions == maxQuestionCount {
             gameOver = true
             return
         }
