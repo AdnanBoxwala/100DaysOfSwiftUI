@@ -19,6 +19,10 @@ struct ContentView: View {
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
     
+    @State private var selectedFlag = -1
+    @State private var restOpacity = 1.0
+    @State private var restScale = 1.0
+    
     var body: some View {
         ZStack {
             RadialGradient(stops: [
@@ -49,6 +53,12 @@ struct ContentView: View {
                             flagTapped(number)
                         } label: {
                             FlagImage(for: countries[number])
+                                .rotation3DEffect(
+                                    Angle(degrees: selectedFlag == number ? 360 : 0),
+                                                          axis: (x: 0.0, y: 1.0, z: 0.0)
+                                )
+                                .opacity(selectedFlag != number ? restOpacity : 1)
+                                .scaleEffect(selectedFlag != number ? restScale : 1)
                         }
                     }
                 }
@@ -82,6 +92,12 @@ struct ContentView: View {
     }
     
     func flagTapped(_ number: Int) {
+        withAnimation {
+            selectedFlag = number
+            restOpacity = 0.25
+            restScale = 0.8
+        }
+        
         if number == correctAnswer {
             scoreTitle = "Correct!"
             score += 1
@@ -89,8 +105,12 @@ struct ContentView: View {
             scoreTitle = "Wrong! That's the flag of \(countries[number])."
             score = score > 0 ? score - 1 : 0
         }
-        showingScore = true
+        
         answeredQuestions += 1
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            showingScore = true
+        }
     }
     
     func askQuestion() {
@@ -100,6 +120,11 @@ struct ContentView: View {
         }
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        
+        // reset animation properties
+        selectedFlag = -1
+        restOpacity = 1
+        restScale = 1
     }
     
     func reset() {

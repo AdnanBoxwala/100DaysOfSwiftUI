@@ -206,7 +206,7 @@ struct ContentView: View {
 
 
 // MARK: - Animating gestures
-//
+// default animation in iOS 17 is spring
 //struct ContentView: View {
 //    let letters = Array("Hello, SwiftUI")
 //    @State private var enabled = false
@@ -221,7 +221,7 @@ struct ContentView: View {
 //                    .background(enabled ? .blue : .red)
 //                    .offset(dragAmount)
 //                    .animation(
-//                        .default.delay(Double(num) / 20),
+//                        .linear.delay(Double(num) / 20),
 //                        value: dragAmount
 //                    )
 //            }
