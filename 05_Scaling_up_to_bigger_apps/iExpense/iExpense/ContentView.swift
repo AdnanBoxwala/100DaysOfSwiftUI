@@ -14,21 +14,17 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(expenses.items) { item in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-                            Text(item.type)
-                                .font(.caption)
-                        }
-                        
-                        Spacer()
-                        
-                        Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "EUR"))
-                    }
+                Section {
+                    ExpensesView(expenses: expenses, type: "Personal")
+                } header: {
+                    Text("Personal")
                 }
-                .onDelete { expenses.items.remove(atOffsets: $0) }
+                
+                Section {
+                    ExpensesView(expenses: expenses, type: "Business")
+                } header: {
+                    Text("Business")
+                }
             }
             .navigationTitle("iExpense")
             .toolbar {

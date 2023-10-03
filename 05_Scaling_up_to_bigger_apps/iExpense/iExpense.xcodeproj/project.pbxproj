@@ -14,6 +14,7 @@
 		879A130A2ACC65DA00FFE3D0 /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A13092ACC65DA00FFE3D0 /* ExpenseItem.swift */; };
 		879A130C2ACC661A00FFE3D0 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A130B2ACC661900FFE3D0 /* Expenses.swift */; };
 		879A130E2ACC6FA500FFE3D0 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A130D2ACC6FA500FFE3D0 /* AddView.swift */; };
+		879A13102ACCA93800FFE3D0 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A130F2ACCA93800FFE3D0 /* ExpensesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		879A13092ACC65DA00FFE3D0 /* ExpenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
 		879A130B2ACC661900FFE3D0 /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
 		879A130D2ACC6FA500FFE3D0 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		879A130F2ACCA93800FFE3D0 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				879A12FD2ACC2A6900FFE3D0 /* ContentView.swift */,
 				879A13092ACC65DA00FFE3D0 /* ExpenseItem.swift */,
 				879A130B2ACC661900FFE3D0 /* Expenses.swift */,
+				879A130F2ACCA93800FFE3D0 /* ExpensesView.swift */,
 				879A130D2ACC6FA500FFE3D0 /* AddView.swift */,
 				879A12FF2ACC2A6A00FFE3D0 /* Assets.xcassets */,
 				879A13012ACC2A6A00FFE3D0 /* Preview Content */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				879A130C2ACC661A00FFE3D0 /* Expenses.swift in Sources */,
+				879A13102ACCA93800FFE3D0 /* ExpensesView.swift in Sources */,
 				879A12FE2ACC2A6900FFE3D0 /* ContentView.swift in Sources */,
 				879A130E2ACC6FA500FFE3D0 /* AddView.swift in Sources */,
 				879A130A2ACC65DA00FFE3D0 /* ExpenseItem.swift in Sources */,
