@@ -11,6 +11,10 @@
 		872850332ADB391B00B062EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872850322ADB391B00B062EA /* ContentView.swift */; };
 		872850352ADB391C00B062EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 872850342ADB391C00B062EA /* Assets.xcassets */; };
 		872850382ADB391C00B062EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 872850372ADB391C00B062EA /* Preview Assets.xcassets */; };
+		872850422ADC0D2E00B062EA /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872850412ADC0D2E00B062EA /* Order.swift */; };
+		872850442ADC122E00B062EA /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872850432ADC122E00B062EA /* AddressView.swift */; };
+		872850462ADC360100B062EA /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872850452ADC360100B062EA /* CheckoutView.swift */; };
+		872850492ADC3A6100B062EA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872850482ADC3A6100B062EA /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		872850322ADB391B00B062EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		872850342ADB391C00B062EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		872850372ADB391C00B062EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		872850412ADC0D2E00B062EA /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		872850432ADC122E00B062EA /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		872850452ADC360100B062EA /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		872850482ADC3A6100B062EA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,10 @@
 			isa = PBXGroup;
 			children = (
 				872850302ADB391B00B062EA /* CupcakeCornerApp.swift */,
-				872850322ADB391B00B062EA /* ContentView.swift */,
+				872850472ADC3A4300B062EA /* Other */,
+				872850402ADC0CAE00B062EA /* Models */,
+				8728503F2ADC0CA500B062EA /* ViewModels */,
+				8728503E2ADC0C9D00B062EA /* Views */,
 				872850342ADB391C00B062EA /* Assets.xcassets */,
 				872850362ADB391C00B062EA /* Preview Content */,
 			);
@@ -65,6 +76,39 @@
 				872850372ADB391C00B062EA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8728503E2ADC0C9D00B062EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				872850322ADB391B00B062EA /* ContentView.swift */,
+				872850432ADC122E00B062EA /* AddressView.swift */,
+				872850452ADC360100B062EA /* CheckoutView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8728503F2ADC0CA500B062EA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		872850402ADC0CAE00B062EA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				872850412ADC0D2E00B062EA /* Order.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		872850472ADC3A4300B062EA /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				872850482ADC3A6100B062EA /* Extensions.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +181,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				872850422ADC0D2E00B062EA /* Order.swift in Sources */,
+				872850492ADC3A6100B062EA /* Extensions.swift in Sources */,
+				872850442ADC122E00B062EA /* AddressView.swift in Sources */,
+				872850462ADC360100B062EA /* CheckoutView.swift in Sources */,
 				872850332ADB391B00B062EA /* ContentView.swift in Sources */,
 				872850312ADB391B00B062EA /* CupcakeCornerApp.swift in Sources */,
 			);
