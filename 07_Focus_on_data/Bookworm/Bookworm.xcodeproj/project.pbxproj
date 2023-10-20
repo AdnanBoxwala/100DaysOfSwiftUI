@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		879631F02AE323F40088B9B0 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879631EF2AE323F40088B9B0 /* AddBookView.swift */; };
+		879631F22AE32D3D0088B9B0 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879631F12AE32D3D0088B9B0 /* RatingView.swift */; };
+		879631F42AE3366F0088B9B0 /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879631F32AE3366F0088B9B0 /* EmojiRatingView.swift */; };
 		87D084662ADF1BC900569ED8 /* BookwormApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D084652ADF1BC900569ED8 /* BookwormApp.swift */; };
 		87D084682ADF1BC900569ED8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D084672ADF1BC900569ED8 /* ContentView.swift */; };
 		87D0846A2ADF1BCA00569ED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87D084692ADF1BCA00569ED8 /* Assets.xcassets */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		879631EF2AE323F40088B9B0 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
+		879631F12AE32D3D0088B9B0 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		879631F32AE3366F0088B9B0 /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
 		87D084622ADF1BC900569ED8 /* Bookworm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookworm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D084652ADF1BC900569ED8 /* BookwormApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookwormApp.swift; sourceTree = "<group>"; };
 		87D084672ADF1BC900569ED8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +42,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		879631EC2AE323990088B9B0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				87D084732ADF272000569ED8 /* Bookworm.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		879631ED2AE3239F0088B9B0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				87D084672ADF1BC900569ED8 /* ContentView.swift */,
+				879631EF2AE323F40088B9B0 /* AddBookView.swift */,
+				879631F12AE32D3D0088B9B0 /* RatingView.swift */,
+				879631F32AE3366F0088B9B0 /* EmojiRatingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		879631EE2AE323BC0088B9B0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				87D084762ADF278100569ED8 /* DataController.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		87D084592ADF1BC900569ED8 = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				87D084652ADF1BC900569ED8 /* BookwormApp.swift */,
-				87D084672ADF1BC900569ED8 /* ContentView.swift */,
-				87D084732ADF272000569ED8 /* Bookworm.xcdatamodeld */,
-				87D084762ADF278100569ED8 /* DataController.swift */,
+				879631EE2AE323BC0088B9B0 /* Resources */,
+				879631ED2AE3239F0088B9B0 /* Views */,
+				879631EC2AE323990088B9B0 /* Models */,
 				87D084692ADF1BCA00569ED8 /* Assets.xcassets */,
 				87D0846B2ADF1BCA00569ED8 /* Preview Content */,
 			);
@@ -145,8 +178,11 @@
 			files = (
 				87D084682ADF1BC900569ED8 /* ContentView.swift in Sources */,
 				87D084772ADF278100569ED8 /* DataController.swift in Sources */,
+				879631F42AE3366F0088B9B0 /* EmojiRatingView.swift in Sources */,
 				87D084752ADF272000569ED8 /* Bookworm.xcdatamodeld in Sources */,
+				879631F22AE32D3D0088B9B0 /* RatingView.swift in Sources */,
 				87D084662ADF1BC900569ED8 /* BookwormApp.swift in Sources */,
+				879631F02AE323F40088B9B0 /* AddBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
