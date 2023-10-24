@@ -10,13 +10,14 @@ import SwiftUI
 struct AddBookView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
+    @FocusState private var textFieldIsFocussed: Bool
     
     @State private var title = ""
     @State private var author = ""
     @State private var rating = 3
     @State private var genre = ""
     @State private var review = "Your review"
-    let placeholderReview = "Your review"
+    let placeholderReviewText = "Your review"
     
     let genres = ["", "Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
@@ -25,7 +26,9 @@ struct AddBookView: View {
             Form {
                 Section {
                     TextField("Name of book", text: $title)
+                        .focused($textFieldIsFocussed)
                     TextField("Author's name", text: $author)
+                        .focused($textFieldIsFocussed)
                     
                     Picker("Genre", selection: $genre) {
                         ForEach(genres, id: \.self) {
@@ -37,10 +40,11 @@ struct AddBookView: View {
                 
                 Section {
                     TextEditor(text: $review)
-                        .foregroundStyle(review == placeholderReview ? .gray : .primary)
+                        .foregroundStyle(review == placeholderReviewText ? .gray : .primary)
                         .onTapGesture {
-                            review = ""
+                            review = review == placeholderReviewText ? "" : review
                         }
+                        .focused($textFieldIsFocussed)
                     
                     RatingView(rating: $rating)
                 } header: {
@@ -61,9 +65,23 @@ struct AddBookView: View {
                         dismiss()
                     }
                 }
+                .disabled(allFieldsValid == false)
             }
             .navigationTitle("Add Book")
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        review = review == "" ? placeholderReviewText : review
+                        textFieldIsFocussed = false
+                    }
+                }
+            }
         }
+    }
+    
+    var allFieldsValid: Bool {
+        return title.isNotEmpty && author.isNotEmpty && genre.isNotEmpty && review.isNotEmpty && review != placeholderReviewText
     }
 }
 
