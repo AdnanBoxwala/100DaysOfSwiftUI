@@ -13,8 +13,6 @@
 		8796320E2AE9AF1A0088B9B0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8796320D2AE9AF1A0088B9B0 /* Preview Assets.xcassets */; };
 		879632162AE9AF700088B9B0 /* CoreDataProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 879632142AE9AF700088B9B0 /* CoreDataProject.xcdatamodeld */; };
 		879632182AE9AF960088B9B0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879632172AE9AF960088B9B0 /* DataController.swift */; };
-		8796321E2AE9B71C0088B9B0 /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8796321C2AE9B71C0088B9B0 /* Movie+CoreDataClass.swift */; };
-		8796321F2AE9B71C0088B9B0 /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8796321D2AE9B71C0088B9B0 /* Movie+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +23,6 @@
 		8796320D2AE9AF1A0088B9B0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		879632152AE9AF700088B9B0 /* CoreDataProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataProject.xcdatamodel; sourceTree = "<group>"; };
 		879632172AE9AF960088B9B0 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		8796321C2AE9B71C0088B9B0 /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
-		8796321D2AE9B71C0088B9B0 /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				879632142AE9AF700088B9B0 /* CoreDataProject.xcdatamodeld */,
-				8796321C2AE9B71C0088B9B0 /* Movie+CoreDataClass.swift */,
-				8796321D2AE9B71C0088B9B0 /* Movie+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,8 +170,6 @@
 				879632092AE9AF190088B9B0 /* ContentView.swift in Sources */,
 				879632182AE9AF960088B9B0 /* DataController.swift in Sources */,
 				879632072AE9AF190088B9B0 /* CoreDataProjectApp.swift in Sources */,
-				8796321E2AE9B71C0088B9B0 /* Movie+CoreDataClass.swift in Sources */,
-				8796321F2AE9B71C0088B9B0 /* Movie+CoreDataProperties.swift in Sources */,
 				879632162AE9AF700088B9B0 /* CoreDataProject.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
