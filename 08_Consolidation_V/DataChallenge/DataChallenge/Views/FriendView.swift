@@ -14,12 +14,15 @@ struct FriendView: View {
     var body: some View {
         Group {
             if let foundFriend = database.find(with: friend.id) {
-                LinkedFriendView(database: database, friend: foundFriend)
+                NavigationLink {
+                    DetailUserView(database: database, user: foundFriend)
+                } label: {
+                    Text(friend.name)
+                }
             } else {
                 Text(friend.name)
             }
         }
-        
     }
 }
 

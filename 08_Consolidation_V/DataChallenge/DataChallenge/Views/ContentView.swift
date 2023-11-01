@@ -22,17 +22,21 @@ struct ContentView: View {
                 }
             }
             .onAppear {
-                Task {
-                    await fetchData()
+                if database.users.isEmpty {
+                    Task {
+                        print("fetching data from server")
+                        await fetchData()
+                    }
                 }
             }
             .navigationTitle("Users")
+            .navigationBarBackButtonHidden()
             .listStyle(.plain)
         }
     }
     
     func fetchData() async {
-        if !database.users.isEmpty { return }
+//        if !database.users.isEmpty { return }
         
         guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
             print("Invalid URL")
@@ -45,7 +49,7 @@ struct ContentView: View {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
             
-            if let decodedDatabase = try? decoder.decode([Database.User].self, from: data) {
+            if let decodedDatabase = try? decoder.decode([User].self, from: data) {
                 let sortedDatabase = decodedDatabase.sorted {$0.name < $1.name}
                 database.users = sortedDatabase
             } else {

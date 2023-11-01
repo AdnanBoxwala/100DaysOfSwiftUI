@@ -19,7 +19,7 @@ struct BasicUserView: View {
                 HStack {
                     Circle()
                         .frame(width: 10, height: 10)
-                        .foregroundStyle(status ? .green : .gray)
+                        .foregroundStyle(status ? .green : .red)
                     Text("\(status ? "Active" : "Inactive")")
                         .font(.caption)
                 }
@@ -29,7 +29,7 @@ struct BasicUserView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(10)
-        .background(.secondary)
+        .background(.indigo.opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 15))
     }
 }
