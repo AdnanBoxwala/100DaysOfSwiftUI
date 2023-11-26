@@ -10,11 +10,13 @@ import SwiftUI
 struct ContentView: View {
     /// using didSet on the state property, only triggers the closure when the state struct is changed using the non-mutating setter.
     /// When we change the property using binding, the underlying wrappedValue is changed directly and the setter is not triggered.
-    @State private var blurAmount = 0.0 {
-        didSet {
-            print("New value is \(blurAmount)")
-        }
-    }
+//    @State private var blurAmount = 0.0 {
+//        didSet {
+//            print("New value is \(blurAmount)")
+//        }
+//    }
+    
+    @State private var blurAmount = 0.0
     
     var body: some View {
         VStack {
@@ -22,6 +24,13 @@ struct ContentView: View {
                 .blur(radius: blurAmount)
             
             Slider(value: $blurAmount, in: 0...20)
+                .onChange(of: blurAmount) {
+                    print("New value is \(blurAmount)")
+                }
+//                .onChange(of: blurAmount) { oldValue, newValue in
+//                    print("Old value is \(oldValue)")
+//                    print("New value is \(newValue)")
+//                }
             
             Button("Random Blur") {
                 blurAmount = Double.random(in: 0...20)
