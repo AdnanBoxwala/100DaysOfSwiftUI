@@ -9,18 +9,18 @@ import SwiftUI
 
 struct FriendView: View {
     @ObservedObject var database: Database
-    var friend: Friend
+    var friend: CachedFriend
     
     var body: some View {
         Group {
-            if let foundFriend = database.find(with: friend.id) {
+            if let foundFriend = database.find(with: friend.wrappedServerId) {
                 NavigationLink {
                     DetailUserView(database: database, user: foundFriend)
                 } label: {
-                    Text(friend.name)
+                    Text(friend.wrappedName)
                 }
             } else {
-                Text(friend.name)
+                Text(friend.wrappedName)
             }
         }
     }

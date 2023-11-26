@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct Friend: Codable, Identifiable {
-    let id: String
+struct Friend: Codable {
+    enum CodingKeys: String, CodingKey {
+        case serverId = "id"
+        case name = "name"
+    }
+    
+//    let id: String
+    let serverId: String
     let name: String
 }

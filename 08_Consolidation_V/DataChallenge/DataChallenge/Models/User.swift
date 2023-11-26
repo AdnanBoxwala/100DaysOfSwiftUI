@@ -7,11 +7,24 @@
 
 import Foundation
 
-struct User: Codable, Identifiable {
-    var id: String = ""
+struct User: Codable {
+    enum CodingKeys: String, CodingKey {
+        case serverId = "id"
+        case isActive = "isActive"
+        case name = "name"
+        case age = "age"
+        case company = "company"
+        case email = "email"
+        case address = "address"
+        case about = "about"
+        case registered = "registered"
+        case tags = "tags"
+        case friends = "friends"
+    }
+    var serverId: String = ""
     var isActive: Bool = false
     var name: String = ""
-    var age: Int = 0
+    var age: Int16 = 0
     var company: String = ""
     var email: String = ""
     var address: String = ""

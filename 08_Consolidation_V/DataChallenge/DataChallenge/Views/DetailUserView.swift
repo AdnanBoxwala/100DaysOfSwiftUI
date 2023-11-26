@@ -9,29 +9,29 @@ import SwiftUI
 
 struct DetailUserView: View {
     @ObservedObject var database: Database
-    let user: User
+    let user: CachedUser
     
     var body: some View {
         VStack {
             List {
                 Section {
                     Text("**Age**: \(user.age)")
-                    Text("**Email**: \(user.email)")
-                    Text("**Address**: \(user.address)")
-                    Text("**Company**: \(user.company)")
-                    Text("**Registered on**: \(user.registrationDate)")
+                    Text("**Email**: \(user.wrappedEmail)")
+                    Text("**Address**: \(user.wrappedAddress)")
+                    Text("**Company**: \(user.wrappedCompany)")
+                    Text("**Registered on**: \(user.wrappedDate)")
                 } header: {
                     Text("Personal Details")
                 }
                 
                 Section {
-                    Text("\(user.about)")
+                    Text("\(user.wrappedAbout)")
                 } header: {
                     Text("About")
                 }
                 
                 Section {
-                    ForEach(user.sortedFriends()) { friend in
+                    ForEach(user.cachedFriendArray, id: \.serverId) { friend in
                         FriendView(database: database, friend: friend)
                     }
                 } header: {
@@ -40,7 +40,7 @@ struct DetailUserView: View {
                 
                 // TODO: why does this work differently from above code?
 //                VStack(alignment: .leading) {
-//                    ForEach(user.friends) { friend in
+//                    ForEach(user.sortedFriends()) { friend in
 //                        FriendView(database: database, friend: friend)
 //                    }
 //                }
@@ -48,7 +48,7 @@ struct DetailUserView: View {
             
             tagView
         }
-        .navigationTitle(user.name)
+        .navigationTitle(user.wrappedname)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -66,7 +66,7 @@ struct DetailUserView: View {
         return ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 Image(systemName: "tag")
-                ForEach(user.uniqueTags, id: \.self) { tag in
+                ForEach(user.wrappedTags, id: \.self) { tag in
                     Text(tag)
                         .padding(5)
                         .background(.secondary)
