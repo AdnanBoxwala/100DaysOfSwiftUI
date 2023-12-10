@@ -7,32 +7,40 @@
 
 import SwiftUI
 
-struct ContentView: View {
+enum LoadingState {
+    case loading, success, failed
+}
+
+struct LoadingView: View {
     var body: some View {
-        VStack {
-            Text("Hello, world!")
-                .onTapGesture {
-                    let str = "Test Message"
-                    do {
-                        try FileManager.default.encode(str, to: "message.txt")
-                        
-                        let input: String = try FileManager.default.decode(from: "message.txt")
-                        print(input)
-                    } catch FileManager.FileManagerError.writeError {
-                        print("Failed to write content to documents directory.")
-                    } catch FileManager.FileManagerError.loadError {
-                        print("Failed to load content from documents directory.")
-                    } catch {
-                        print("Unknown error.")
-                    }
-                }
-        }
-        .padding()
+        Text("loading...")
     }
+}
+
+struct SuccessView: View {
+    var body: some View {
+        Text("success...")
+    }
+}
+
+struct FailedView: View {
+    var body: some View {
+        Text("failed...")
+    }
+}
+
+struct ContentView: View {
+    var loadingState = LoadingState.failed
     
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
+    var body: some View {
+        switch loadingState {
+        case .loading:
+            LoadingView()
+        case .success:
+            SuccessView()
+        case .failed:
+            FailedView()
+        }
     }
 }
 
