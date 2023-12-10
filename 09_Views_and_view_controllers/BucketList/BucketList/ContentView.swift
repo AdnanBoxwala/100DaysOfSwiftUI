@@ -7,30 +7,32 @@
 
 import SwiftUI
 
-struct User: Identifiable, Comparable {
-    let id = UUID()
-    let firstName: String
-    let lastName: String
-    
-    static func < (lhs: User, rhs: User) -> Bool {
-        if lhs.firstName == rhs.firstName {
-            return lhs.lastName < rhs.lastName
-        }
-        return lhs.firstName < rhs.firstName
-    }
-}
-
 struct ContentView: View {
-    let users = [
-        User(firstName: "Arnold", lastName: "Rimmer"),
-        User(firstName: "Kristine", lastName: "Kochanski"),
-        User(firstName: "David", lastName: "Lister")
-    ].sorted()
-    
     var body: some View {
-        List(users) { user in
-            Text("\(user.firstName) \(user.lastName)")
+        VStack {
+            Text("Hello, world!")
+                .onTapGesture {
+                    let str = "Test Message"
+                    do {
+                        try FileManager.default.encode(str, to: "message.txt")
+                        
+                        let input: String = try FileManager.default.decode(from: "message.txt")
+                        print(input)
+                    } catch FileManager.FileManagerError.writeError {
+                        print("Failed to write content to documents directory.")
+                    } catch FileManager.FileManagerError.loadError {
+                        print("Failed to load content from documents directory.")
+                    } catch {
+                        print("Unknown error.")
+                    }
+                }
         }
+        .padding()
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
 
