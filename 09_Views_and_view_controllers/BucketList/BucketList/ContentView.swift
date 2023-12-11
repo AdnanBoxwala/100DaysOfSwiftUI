@@ -5,31 +5,39 @@
 //  Created by Adnan Boxwala on 10.12.23.
 //
 
-import MapKit
+import LocalAuthentication
 import SwiftUI
 
 struct ContentView: View {
-    @State private var position: MapCameraPosition = .region(MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12),
-        span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
-    )
+    @State private var isUnlocked = false
     
     var body: some View {
-        NavigationStack {
-            Map(position: $position) {
-                Marker("Buckingham Palace", coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141))
-                
-                Annotation("Tower of London", coordinate: CLLocationCoordinate2D(latitude: 51.508, longitude: -0.076), anchor: .center) {
-                    NavigationLink {
-                        Text("Tower of London")
-                    } label: {
-                        Circle()
-                            .stroke(.red, lineWidth: 3)
-                            .frame(width: 44, height: 44)
-                    }
+        VStack {
+            if isUnlocked {
+                Text("unlocked")
+            } else {
+                Text("locked")
+            }
+        }
+        .onAppear(perform: authenticate)
+    }
+    
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "We need to unlock your data."
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                if success {
+                    isUnlocked = true
+                } else {
+                    // there was a problem
                 }
             }
-            .navigationTitle("London Explorer")
+        } else {
+            // no biometrics
         }
     }
 }
