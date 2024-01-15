@@ -12,6 +12,7 @@
 		874170D92B25CD86002CF4C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 874170D82B25CD86002CF4C7 /* Assets.xcassets */; };
 		874170DC2B25CD86002CF4C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 874170DB2B25CD86002CF4C7 /* Preview Assets.xcassets */; };
 		874170E42B25D50E002CF4C7 /* FileManager-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874170E32B25D50E002CF4C7 /* FileManager-Decodable.swift */; };
+		87A54D952B55D73400831920 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A54D942B55D73400831920 /* Result.swift */; };
 		87DFD36A2B542D6D00082A16 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD3692B542D6D00082A16 /* Location.swift */; };
 		87DFD36C2B54388100082A16 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD36B2B54388100082A16 /* EditView.swift */; };
 /* End PBXBuildFile section */
@@ -23,6 +24,7 @@
 		874170D82B25CD86002CF4C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		874170DB2B25CD86002CF4C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		874170E32B25D50E002CF4C7 /* FileManager-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-Decodable.swift"; sourceTree = "<group>"; };
+		87A54D942B55D73400831920 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		87DFD3692B542D6D00082A16 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		87DFD36B2B54388100082A16 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +63,7 @@
 				874170D42B25CD85002CF4C7 /* BucketListApp.swift */,
 				874170D62B25CD85002CF4C7 /* ContentView.swift */,
 				87DFD36B2B54388100082A16 /* EditView.swift */,
+				87A54D942B55D73400831920 /* Result.swift */,
 				87DFD3692B542D6D00082A16 /* Location.swift */,
 				874170D82B25CD86002CF4C7 /* Assets.xcassets */,
 				874170DA2B25CD86002CF4C7 /* Preview Content */,
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A54D952B55D73400831920 /* Result.swift in Sources */,
 				874170E42B25D50E002CF4C7 /* FileManager-Decodable.swift in Sources */,
 				87DFD36C2B54388100082A16 /* EditView.swift in Sources */,
 				874170D72B25CD85002CF4C7 /* ContentView.swift in Sources */,
