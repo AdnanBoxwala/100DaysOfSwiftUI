@@ -45,7 +45,7 @@ struct EditView: View {
                             Text(page.description)
                                 .italic()
                         }
-                            
+                        
                     case .failed:
                         Text("Please try again late.")
                     }
