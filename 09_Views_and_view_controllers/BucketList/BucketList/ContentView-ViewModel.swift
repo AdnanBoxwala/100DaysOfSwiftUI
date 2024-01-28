@@ -9,6 +9,7 @@ import CoreLocation
 import Foundation
 import LocalAuthentication
 import MapKit
+import _MapKit_SwiftUI
 
 extension ContentView {
     @Observable
@@ -16,6 +17,14 @@ extension ContentView {
         private(set) var locations: [Location]
         var selectedPlace: Location?
         var isUnlocked = false
+        var isHybrid = true
+        var showingAlert = false
+        let alertTitle = "Authentication failed!"
+        var alertMessage = ""
+        
+        var mapStyle: MapStyle {
+            isHybrid ? MapStyle.hybrid(elevation: .realistic) : MapStyle.standard
+        }
         
         let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
         
@@ -63,12 +72,20 @@ extension ContentView {
                         self.isUnlocked = true
                     } else {
                         // error
-                        print(authenticationError?.localizedDescription ?? "authentication failed")
+                        // SwiftUI shows alert automatically
                     }
                 }
             } else {
                 // no biometrics
-                print("no biometrics")
+                
+                if context.biometryType.rawValue == LABiometryType.none.rawValue {
+                    // Functionality not available out of the box.
+                    // Add new View for this feature.
+                    self.alertMessage = "Device does not support biometrics. Authenticate using PIN."
+                } else {
+                    self.alertMessage = "Allow permission to biometrics in Settings."
+                }
+                self.showingAlert = true
             }
         }
     }

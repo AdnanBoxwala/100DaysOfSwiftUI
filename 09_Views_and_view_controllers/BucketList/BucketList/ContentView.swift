@@ -34,7 +34,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .mapStyle(.hybrid(elevation: .realistic))
+                .mapStyle(viewModel.mapStyle)
                 .onTapGesture { position in
                     if let coordinate = proxy.convert(position, from: .local) {
                         viewModel.addLocation(at: coordinate)
@@ -45,6 +45,17 @@ struct ContentView: View {
                         viewModel.update(location: $0)
                     }
                 }
+                .safeAreaInset(edge: .bottom, alignment: .trailing) {
+                    Button {
+                        viewModel.isHybrid.toggle()
+                    } label: {
+                        Image(systemName: "square.stack.3d.up")
+                            .font(.title2)
+                            .background(.white)
+                            .clipShape(.circle)
+                            .padding(.trailing)
+                    }
+                }
             }
         } else {
             Button("Unlock Places", action: viewModel.authenticate)
@@ -52,6 +63,11 @@ struct ContentView: View {
                 .background(.blue)
                 .foregroundStyle(.white)
                 .clipShape(.capsule)
+                .alert(viewModel.alertTitle, isPresented: $viewModel.showingAlert) {
+                    Button("Ok") {}
+                } message: {
+                    Text(viewModel.alertMessage)
+                }
         }
     }
 }
