@@ -8,19 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var value = 10
+    
     var body: some View {
-        // decorative says image is not important and isnt read out by voiceover
-//        Image(decorative: "ales-krivec-15949")
-//            .accessibilityHidden(true) // hides the view from voiceover completely
-        
         VStack {
-            Text("Your score is")
-            Text("1000")
-                .font(.title)
+            Text("value: \(value)")
+            
+            Button("increment") {
+                value += 1
+            }
+            
+            Button("decrement") {
+                value -= 1
+            }
         }
-//        .accessibilityElement(children: .combine) // adds a short pause between elements
-        .accessibilityElement(children: .ignore) // since both text view are related to each other and should be read as single entity.
-        .accessibilityLabel("Your score is 1000") // now read without the pause
+        .accessibilityElement()
+        .accessibilityLabel("Value")
+        .accessibilityValue(String(value))
+        .accessibilityAdjustableAction { direction in
+            switch direction {
+            case .increment:
+                value += 1
+            case .decrement:
+                value -= 1
+            default:
+                print("not handled")
+            }
+        }
     }
 }
 
