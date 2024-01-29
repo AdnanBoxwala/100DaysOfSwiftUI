@@ -8,33 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    let pictures = [
-        "ales-krivec-15949",
-        "galina-n-189483",
-        "kevin-horstmann-141705",
-        "nicolas-tissot-335096"
-    ]
-    
-    let labels = [
-        "Tulips",
-        "Frozen tree buds",
-        "Sunflowers",
-        "Fireworks"
-    ]
-    
-    @State private var selectedPicture = Int.random(in: 0...3)
-    
     var body: some View {
-        Button {
-            selectedPicture = Int.random(in: 0...3)
-        } label: {
-            Image(pictures[selectedPicture])
-                .resizable()
-                .scaledToFit()
+        // decorative says image is not important and isnt read out by voiceover
+//        Image(decorative: "ales-krivec-15949")
+//            .accessibilityHidden(true) // hides the view from voiceover completely
+        
+        VStack {
+            Text("Your score is")
+            Text("1000")
+                .font(.title)
         }
-        .accessibilityLabel(labels[selectedPicture])
-//        .accessibilityAddTraits(.isButton)
-//        .accessibilityRemoveTraits(.isImage)
+//        .accessibilityElement(children: .combine) // adds a short pause between elements
+        .accessibilityElement(children: .ignore) // since both text view are related to each other and should be read as single entity.
+        .accessibilityLabel("Your score is 1000") // now read without the pause
     }
 }
 
