@@ -14,6 +14,7 @@
 		87FB4A1C2C56671600F151F1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB4A1B2C56671600F151F1 /* Book.swift */; };
 		87FB4A1E2C5667A100F151F1 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB4A1D2C5667A100F151F1 /* AddBookView.swift */; };
 		87FB4A202C566C8100F151F1 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB4A1F2C566C8100F151F1 /* RatingView.swift */; };
+		87FB4A222C5690D500F151F1 /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB4A212C5690D500F151F1 /* EmojiRatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		87FB4A1B2C56671600F151F1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		87FB4A1D2C5667A100F151F1 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		87FB4A1F2C566C8100F151F1 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		87FB4A212C5690D500F151F1 /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				87FB4A0B2C55A74B00F151F1 /* SwiftDataProjectApp.swift */,
 				87FB4A1B2C56671600F151F1 /* Book.swift */,
 				87FB4A0D2C55A74B00F151F1 /* ContentView.swift */,
+				87FB4A212C5690D500F151F1 /* EmojiRatingView.swift */,
 				87FB4A1D2C5667A100F151F1 /* AddBookView.swift */,
 				87FB4A0F2C55A74C00F151F1 /* Assets.xcassets */,
 				87FB4A112C55A74C00F151F1 /* Preview Content */,
@@ -150,6 +153,7 @@
 				87FB4A0C2C55A74B00F151F1 /* SwiftDataProjectApp.swift in Sources */,
 				87FB4A1C2C56671600F151F1 /* Book.swift in Sources */,
 				87FB4A202C566C8100F151F1 /* RatingView.swift in Sources */,
+				87FB4A222C5690D500F151F1 /* EmojiRatingView.swift in Sources */,
 				87FB4A1E2C5667A100F151F1 /* AddBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
