@@ -5,6 +5,7 @@
 //  Created by Adnan Boxwala on 28.07.24.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct SwiftDataProjectApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Student.self)
     }
 }
