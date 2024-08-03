@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87AB28E12C5E455200A3501A /* ProspectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AB28E02C5E455200A3501A /* ProspectsView.swift */; };
+		87AB28E32C5E455D00A3501A /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AB28E22C5E455D00A3501A /* MeView.swift */; };
 		87FB49EF2C550A1800F151F1 /* HotProspectsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB49EE2C550A1800F151F1 /* HotProspectsApp.swift */; };
 		87FB49F12C550A1800F151F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB49F02C550A1800F151F1 /* ContentView.swift */; };
 		87FB49F32C550A1900F151F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FB49F22C550A1900F151F1 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		87AB28E02C5E455200A3501A /* ProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectsView.swift; sourceTree = "<group>"; };
+		87AB28E22C5E455D00A3501A /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
 		87FB49EB2C550A1800F151F1 /* HotProspects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotProspects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FB49EE2C550A1800F151F1 /* HotProspectsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotProspectsApp.swift; sourceTree = "<group>"; };
 		87FB49F02C550A1800F151F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			children = (
 				87FB49EE2C550A1800F151F1 /* HotProspectsApp.swift */,
 				87FB49F02C550A1800F151F1 /* ContentView.swift */,
+				87AB28E02C5E455200A3501A /* ProspectsView.swift */,
+				87AB28E22C5E455D00A3501A /* MeView.swift */,
 				87FB49F22C550A1900F151F1 /* Assets.xcassets */,
 				87FB49F42C550A1900F151F1 /* Preview Content */,
 			);
@@ -83,6 +89,8 @@
 			dependencies = (
 			);
 			name = HotProspects;
+			packageProductDependencies = (
+			);
 			productName = HotProspects;
 			productReference = 87FB49EB2C550A1800F151F1 /* HotProspects.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,8 @@
 				Base,
 			);
 			mainGroup = 87FB49E22C550A1800F151F1;
+			packageReferences = (
+			);
 			productRefGroup = 87FB49EC2C550A1800F151F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,6 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87AB28E32C5E455D00A3501A /* MeView.swift in Sources */,
+				87AB28E12C5E455200A3501A /* ProspectsView.swift in Sources */,
 				87FB49F12C550A1800F151F1 /* ContentView.swift in Sources */,
 				87FB49EF2C550A1800F151F1 /* HotProspectsApp.swift in Sources */,
 			);
