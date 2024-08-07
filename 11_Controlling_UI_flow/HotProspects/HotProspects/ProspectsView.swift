@@ -15,10 +15,16 @@ struct ProspectsView: View {
         case none, contacted, uncontacted
     }
     
+    // Challenge 3:
+    enum SortType {
+        case name, mostRecent
+    }
+    
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Prospect.name) var prospects: [Prospect]
     @State private var isShowingScanner = false
     @State private var selectedProspects = Set<Prospect>()
+    @State private var sortOrder: SortType = .name
     
     let filter: FilterType
     
@@ -33,15 +39,41 @@ struct ProspectsView: View {
         }
     }
     
+    // Challenge 3:
+    var sortedProspects: [Prospect] {
+        if sortOrder == .name {
+            return prospects.sorted { lhs, rhs in
+                lhs.name < rhs.name
+            }
+        } else {
+            return prospects.sorted { lhs, rhs in
+                lhs.dateAdded > rhs.dateAdded
+            }
+        }
+    }
+    
     var body: some View {
         NavigationStack {
-            List(prospects, selection: $selectedProspects) { prospect in
-                VStack(alignment: .leading) {
-                    Text(prospect.name)
-                        .font(.headline)
-                    
-                    Text(prospect.emailAddress)
-                        .foregroundStyle(.secondary)
+            List(sortedProspects, selection: $selectedProspects) { prospect in
+                // Challenge 2:
+                NavigationLink {
+                    EditProspectView(prospect: prospect)
+                } label: {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            
+                            Text(prospect.emailAddress)
+                                .foregroundStyle(.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        // Challenge 1:
+                        isContactedIcon(prospect: prospect)
+                            .foregroundStyle(prospect.isContacted ? .green : .red)
+                    }
                 }
                 .swipeActions {
                     Button("Delete", systemImage: "trash", role: .destructive) {
@@ -69,6 +101,19 @@ struct ProspectsView: View {
             }
             .navigationTitle(title)
             .toolbar {
+                // Challenge 3:
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                        Picker("Sort", selection: $sortOrder) {
+                            Text("Name")
+                                .tag(SortType.name)
+                            
+                            Text("Most recent")
+                                .tag(SortType.mostRecent)
+                        }
+                    }
+                }
+                
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Scan", systemImage: "qrcode.viewfinder") {
                         isShowingScanner = true
@@ -88,6 +133,10 @@ struct ProspectsView: View {
             .sheet(isPresented: $isShowingScanner) {
                 CodeScannerView(codeTypes: [.qr], simulatedData: "Adnan Boxwala\nAdnanBox.github.io", completion: handleScan)
             }
+            .onAppear {
+                // reset, so that prospect does not stay selected after editing
+                selectedProspects = []
+            }
         }
     }
     
@@ -103,6 +152,14 @@ struct ProspectsView: View {
         }
     }
     
+    // Challenge 1:
+    func isContactedIcon(prospect: Prospect) -> Image? {
+        if filter == .none {
+            return prospect.isContacted ? Image(systemName: "checkmark.circle") : Image(systemName: "xmark.circle")
+        }
+        return nil
+    }
+    
     func handleScan(result: Result<ScanResult, ScanError>) {
         isShowingScanner = false
         
@@ -111,7 +168,7 @@ struct ProspectsView: View {
             let details = result.string.components(separatedBy: "\n")
             guard details.count == 2 else { return }
             
-            let person = Prospect(name: details[0], emailAddress: details[1], isContacted: false)
+            let person = Prospect(name: details[0], emailAddress: details[1], isContacted: false, dateAdded: .now)
             modelContext.insert(person)
             
         case .failure(let error):
@@ -123,6 +180,7 @@ struct ProspectsView: View {
         for prospect in selectedProspects {
             modelContext.delete(prospect)
         }
+        selectedProspects = []
     }
     
     func addNotification(for prospect: Prospect) {
