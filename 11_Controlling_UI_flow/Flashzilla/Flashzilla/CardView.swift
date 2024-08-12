@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+// Challenge 2:
+extension Shape {
+    func addBackground(at offsetWidth: CGFloat) -> some View {
+        return self.fill(offsetWidth > 0 ? .green : (offsetWidth < 0 ? .red : .white))
+    }
+}
+
 struct CardView: View {
     @Environment(\.accessibilityDifferentiateWithoutColor) var accessibilityDifferentiateWithoutColor
     @Environment(\.accessibilityVoiceOverEnabled) var accessibilityVoiceOverEnabled
@@ -29,7 +36,7 @@ struct CardView: View {
                     accessibilityDifferentiateWithoutColor
                     ? nil
                     : RoundedRectangle(cornerRadius: 25)
-                        .fill(offset.width > 0 ? .green : .red)
+                        .addBackground(at: offset.width) // Challenge 2
                 )
                 .shadow(radius: 10)
             
