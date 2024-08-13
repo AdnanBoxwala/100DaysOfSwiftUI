@@ -45,9 +45,9 @@ struct ContentView: View {
                 ZStack {
                     ForEach(cards, id: \.id) { card in
                         if let index = cards.firstIndex(where: { $0.id == card.id }) {
-                            CardView(card: card) { result in
+                            CardView(card: card) { answer in
                                 withAnimation {
-                                    removeCard(at: index, for: result)
+                                    removeCard(at: index, isMemorized: answer)
                                 }
                             }
                             .stacked(at: index, in: cards.count)
@@ -94,7 +94,7 @@ struct ContentView: View {
                     HStack {
                         Button {
                             withAnimation {
-                                removeCard(at: cards.count - 1)
+                                removeCard(at: cards.count - 1, isMemorized: false)
                             }
                         } label: {
                             Image(systemName: "xmark.circle")
@@ -109,7 +109,7 @@ struct ContentView: View {
                         
                         Button {
                             withAnimation {
-                                removeCard(at: cards.count - 1)
+                                removeCard(at: cards.count - 1, isMemorized: true)
                             }
                         } label: {
                             Image(systemName: "checkmark.circle")
@@ -145,9 +145,9 @@ struct ContentView: View {
         .onAppear(perform: resetCards)
     }
     
-    func removeCard(at index: Int, for result: Bool = false) {
+    func removeCard(at index: Int, isMemorized: Bool) {
         guard index >= 0 else { return }
-        if result == false {
+        if isMemorized == false {
             let card = Card(prompt: cards[index].prompt, answer: cards[index].answer)
             cards.remove(at: index)
             cards.insert(card, at: 0)

@@ -19,7 +19,7 @@ struct CardView: View {
     @Environment(\.accessibilityVoiceOverEnabled) var accessibilityVoiceOverEnabled
     @State private var offset = CGSize.zero
     @State private var isShowingAnswer = false
-    @State private var isAnsweredCorrectly: Bool?
+    @State private var isMemorized: Bool?
     
     let card: Card
     var removal: ((Bool) -> Void)? = nil
@@ -73,9 +73,9 @@ struct CardView: View {
                 }
                 .onEnded { _ in
                     if abs(offset.width) > 100 {
-                        isAnsweredCorrectly = offset.width > 100 ? true : false
-                        removal?(isAnsweredCorrectly!)
-                        isAnsweredCorrectly = nil
+                        isMemorized = offset.width > 100 ? true : false
+                        removal?(isMemorized!)
+                        isMemorized = nil
                     } else {
                         offset = .zero
                     }
