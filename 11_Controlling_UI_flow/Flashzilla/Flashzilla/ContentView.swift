@@ -43,15 +43,17 @@ struct ContentView: View {
                     .clipShape(.capsule)
                 
                 ZStack {
-                    ForEach(0..<cards.count, id: \.self) { index in
-                        CardView(card: cards[index]) {
-                            withAnimation {
-                                removeCard(at: index)
+                    ForEach(cards, id: \.id) { card in
+                        if let index = cards.firstIndex(where: { $0.id == card.id }) {
+                            CardView(card: card) { result in
+                                withAnimation {
+                                    removeCard(at: index, for: result)
+                                }
                             }
+                            .stacked(at: index, in: cards.count)
+                            .allowsHitTesting(index == cards.count - 1)
+                            .accessibilityHidden(index < cards.count - 1)
                         }
-                        .stacked(at: index, in: cards.count)
-                        .allowsHitTesting(index == cards.count - 1)
-                        .accessibilityHidden(index < cards.count - 1)
                     }
                 }
                 .allowsHitTesting(timeRemaining > 0)
@@ -143,9 +145,15 @@ struct ContentView: View {
         .onAppear(perform: resetCards)
     }
     
-    func removeCard(at index: Int) {
+    func removeCard(at index: Int, for result: Bool = false) {
         guard index >= 0 else { return }
-        cards.remove(at: index)
+        if result == false {
+            let card = Card(prompt: cards[index].prompt, answer: cards[index].answer)
+            cards.remove(at: index)
+            cards.insert(card, at: 0)
+        } else {
+            cards.remove(at: index)
+        }
         
         if cards.isEmpty {
             isActive = false

@@ -19,9 +19,10 @@ struct CardView: View {
     @Environment(\.accessibilityVoiceOverEnabled) var accessibilityVoiceOverEnabled
     @State private var offset = CGSize.zero
     @State private var isShowingAnswer = false
+    @State private var isAnsweredCorrectly: Bool?
     
     let card: Card
-    var removal: (() -> Void)? = nil
+    var removal: ((Bool) -> Void)? = nil
     
     var body: some View {
         ZStack {
@@ -72,7 +73,9 @@ struct CardView: View {
                 }
                 .onEnded { _ in
                     if abs(offset.width) > 100 {
-                        removal?()
+                        isAnsweredCorrectly = offset.width > 100 ? true : false
+                        removal?(isAnsweredCorrectly!)
+                        isAnsweredCorrectly = nil
                     } else {
                         offset = .zero
                     }
