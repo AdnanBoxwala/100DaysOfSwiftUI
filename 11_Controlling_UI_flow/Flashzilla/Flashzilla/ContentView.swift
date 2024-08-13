@@ -166,11 +166,14 @@ struct ContentView: View {
         loadData()
     }
     
-    func loadData() {
-        if let data = UserDefaults.standard.data(forKey: "Cards") {
-            if let decoded = try? JSONDecoder().decode([Card].self, from: data) {
-                cards = decoded
-            }
+    func loadData() {        
+        let url = URL.documentsDirectory.appending(path: "flash_cards.json")
+        do {
+            let data = try Data(contentsOf: url)
+            let decoded = try JSONDecoder().decode([Card].self, from: data)
+            cards = decoded
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }
