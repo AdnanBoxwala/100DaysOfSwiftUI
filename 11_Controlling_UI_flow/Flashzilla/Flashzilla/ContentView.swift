@@ -167,14 +167,7 @@ struct ContentView: View {
     }
     
     func loadData() {        
-        let url = URL.documentsDirectory.appending(path: "flash_cards.json")
-        do {
-            let data = try Data(contentsOf: url)
-            let decoded = try JSONDecoder().decode([Card].self, from: data)
-            cards = decoded
-        } catch {
-            print(error.localizedDescription)
-        }
+        cards = DataManager.loadData()
     }
 }
 

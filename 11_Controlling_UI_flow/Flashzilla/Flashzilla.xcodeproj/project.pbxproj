@@ -14,6 +14,7 @@
 		871CDDAB2C66A15A00E4ED96 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871CDDAA2C66A15A00E4ED96 /* Card.swift */; };
 		871CDDAD2C66A1C300E4ED96 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871CDDAC2C66A1C300E4ED96 /* CardView.swift */; };
 		873D02B02C690119002BCBCD /* EditCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873D02AF2C690119002BCBCD /* EditCards.swift */; };
+		873D02B22C6BE4C4002BCBCD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873D02B12C6BE4C4002BCBCD /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		871CDDAA2C66A15A00E4ED96 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		871CDDAC2C66A1C300E4ED96 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		873D02AF2C690119002BCBCD /* EditCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCards.swift; sourceTree = "<group>"; };
+		873D02B12C6BE4C4002BCBCD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				873D02AF2C690119002BCBCD /* EditCards.swift */,
 				871CDDAC2C66A1C300E4ED96 /* CardView.swift */,
 				871CDD9E2C66A13800E4ED96 /* ContentView.swift */,
+				873D02B12C6BE4C4002BCBCD /* DataManager.swift */,
 				871CDDA02C66A13900E4ED96 /* Assets.xcassets */,
 				871CDDA22C66A13900E4ED96 /* Preview Content */,
 			);
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				871CDD9F2C66A13800E4ED96 /* ContentView.swift in Sources */,
+				873D02B22C6BE4C4002BCBCD /* DataManager.swift in Sources */,
 				871CDDAB2C66A15A00E4ED96 /* Card.swift in Sources */,
 				871CDDAD2C66A1C300E4ED96 /* CardView.swift in Sources */,
 				873D02B02C690119002BCBCD /* EditCards.swift in Sources */,

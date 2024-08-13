@@ -49,24 +49,11 @@ struct EditCards: View {
     }
     
     func loadData() {
-        let url = URL.documentsDirectory.appending(path: "flash_cards.json")
-        do {
-            let data = try Data(contentsOf: url)
-            let decoded = try JSONDecoder().decode([Card].self, from: data)
-            cards = decoded
-        } catch {
-            print(error.localizedDescription)
-        }
+        cards = DataManager.loadData()
     }
     
     func saveData() {
-        let url = URL.documentsDirectory.appending(path: "flash_cards.json")
-        do {
-            let data = try JSONEncoder().encode(cards)
-            try data.write(to: url, options: [.atomic, .completeFileProtection])
-        } catch {
-            print(error.localizedDescription)
-        }
+        DataManager.saveData(cards)
         
         // Challenge 1:
         newPrompt = ""
